@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>{{ userName }} - Profile</title>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/userAfterLogin">Student Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/studentDetails">Add Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/contactMentor">Contact Mentor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout">Log Out</a>
+            </li>
+          </ul> 
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <!-- Welcome Message -->
+
+        <div class="container">
+            <h1 class="text-success my-4">Welcome {{ userName }}</h1>
+            <!-- <h1 class="text-success my-4" id="successMsg">{{ successMsg }}</h1> -->
+            <!-- {% if addDetailsFlag %}
+            <h3 class="text-success my-4" id="successMsg">{{ msg }}</h3>
+            {% endif %} -->
+        </div>
+
+
+
+        <!-- Failure Message -->
+        <div class="container">
+          <h3 id="failureMsg" class="text-danger my-2">{{ failureMsg }}</h3>
+        </div>
+
+
+
+        <div class="container">
+            
+    
+          <!-- Students Bio Data Base -->
+    
+            <table class="table table-hover table-bordered">
+              <thead class="table-success">
+                  <tr>
+                  <th> Name </th>
+                  <th> Email </th>
+                  <th> Mobile </th>
+                  <th> Country </th>
+                  <th> Gender </th>
+                  <th> DOB </th>
+                  <th> ADDRESS </th>
+                  </tr>
+              </thead>
+    
+              <tbody>
+                      
+                  <tr>
+                  <td> {{ userObj['username'] }} </td>
+                  <td> {{ userObj['useremail'] }} </td>
+                  <td> {{ userObj['usermobile'] }} </td>
+                  <td> {{ userObj['usercountry'] }} </td>
+                  <td> {{ userObj['usergender'] }} </td>
+                  <td> {{ userObj['userdob'] }} </td>
+                  <td> {{ userObj['useraddress'] }} </td>
+                  <td> <a href="/updateUserProfile">
+                    <button type="button" class="btn btn-success">
+                   UPDATE</button>
+                       </a>				
+                  </td>
+                  </tr>
+                      
+              </tbody>
+            <table>
+      </div>
+
+
+
+
+      {% if userDetailsObjTrue %}
+        <div class="container">
+
+          <h1 class="text-success my-4">Student Details</h1>
+
+          <table class="table table-hover table-bordered">
+            <thead class="table-success">
+              <tr>
+              <th> Roll </th>
+              <th> Dept </th>
+              <th> Sem </th>
+              <th> Session </th>
+              <th> CGPA </th>
+              <th> New Technology </th>
+              <th> Certificates </th>
+              <th> Mentor Name </th>
+              <th> Mentor Score </th>
+              <th> Mentor Remarks </th>
+              </tr>
+            </thead>
+
+            <tbody>
+                   
+              {% for uobj in userDetailsObj %}
+              <tr>
+              <td> {{ uobj['studentRoll'] }} </td>
+              <td> {{ uobj['studentDept'] }} </td>
+              <td> {{ uobj['studentSem'] }} </td>
+              <td> {{ uobj['studentSession'] }} </td>
+              <td> {{ uobj['studentCGPA'] }} </td>
+              <td> {{ uobj['studentNewTech'] }} </td>
+              <td> {{ uobj['studentCertificates'] }} </td>
+              <td> {{ uobj['studentMentorName'] }} </td>
+              <td> {{ uobj['studentMentorScore'] }} </td>
+              <td> {{ uobj['studentMetorRemarks'] }} </td>
+              </tr>
+              {% endfor %}
+                  
+          </tbody>
+
+          </table>
+
+        </div>
+        {% endif %}
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+  <script>
+    setTimeout(() => {
+            $('#failureMsg').hide()
+        }, 2000);
+  </script>
+</html>

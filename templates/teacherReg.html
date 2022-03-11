@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Home</title>
+    <style>
+        /* #alert {
+            display: none;
+        } */
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/#">Contact Us</a>
+            </li>                        
+          </ul> 
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Alert -->
+
+    <!-- <div class="alert alert-warning alert-dismissible fade hide" id="alert" role="alert">
+        <strong>Success!</strong> You have successfully registered.
+      </div> -->
+
+      <!-- <div id="messages" class="hide" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div id="messages_content"></div>
+      </div> -->
+
+
+    <!-- Heading -->
+
+    <div class="container">
+        <h1 class="text-success my-4">Teacher Registration</h1>
+    </div>
+
+    <div class="container">
+        <h3 id="successMsg" class="text-success my-2">{{ successMsg }}</h3>
+    </div>
+
+
+    <!-- Registration Form -->
+
+    <div class="container my-4">
+        <form action="/teacherReg" method="post" id="form">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" name="fullName" placeholder="Enter your full name" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+              <label for="dept" class="form-label">Department</label>
+              <input type="text" name="dept" placeholder="Enter your department" class="form-control" id="dept" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" placeholder="Enter your email" class="form-control" id="email" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label for="mobileNo" class="form-label">Mobile No</label>
+                <input type="tel" name="mobileNo" placeholder="Enter your Mobile no" class="form-control" id="mobileNo" aria-describedby="emailHelp">
+            </div>
+            
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>&nbsp;&nbsp;
+                <select class="form-select" name="country" aria-label="Default select example">
+                    <option selected>Choose Your Country</option>
+                    <option value="INDIA">INDIA</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+              
+            <div class="mb-3">
+                <label for="language" class="form-label">Language Known</label>
+                &nbsp;&nbsp;
+                <input type="checkbox" name="english" value="English" />
+                <span class="text-success">English</span> &nbsp;&nbsp;
+                <input type="checkbox" name="bengali" value="Bengali" />
+                <span class="text-success">Bengali</span> &nbsp;&nbsp;
+                <input type="checkbox" name="hindi" value="Hindi" />
+                <span class="text-success">Hindi</span>
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="gender" value="Male" />
+                <span class="text-success">Male</span> &nbsp;&nbsp;
+                <input type="radio" name="gender" value="Female" />
+                <span class="text-success">Female</span>
+            </div>
+
+            <div class="mb-3">
+                <label for="DOB" class="form-label">Date of Birth</label>
+                <input type="date" name="DOB" class="form-control" max="2012-12-31">
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Create Your Password</label>
+              <input type="password" name="pass" placeholder="Create Your Password" class="form-control" id="password">
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" name="address" id="address" rows="3" placeholder="Enter your address here"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-success" id="createAccount">Register</button>
+            
+          </form>
+    </div>
+
+
+
+
+
+
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    // $(document).ready(function(){
+    //     $('#regForm').submit(function(){
+    //         console.log('create account clicked')
+    //     $('#alert').show()
+    //     }) 
+    //     });
+
+    //     $('#form').submit(function(e) {
+    //             $('#messages').removeClass('hide').addClass('alert alert-success alert-dismissible').slideDown().show();
+    //             $('#messages_content').html('<h4>MESSAGE HERE</h4>');
+    //             $('#modal').modal('show');
+    //             e.preventDefault();
+    //         });
+        setTimeout(() => {
+            $('#successMsg').hide()
+        }, 2000);
+</script>
+</html>

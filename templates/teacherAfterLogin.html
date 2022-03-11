@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>{{teacherName}} - Profile</title>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/teacherAfterLogin">Teacher Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/logout">Log Out</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/studentQuery">Student Query</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/studentHistory">Student History</a>
+            </li>
+          </ul> 
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <!-- Welcome Message -->
+
+        <div class="container">
+            <h1 class="text-success my-4">Welcome {{teacherName}}</h1>
+        </div>
+
+
+        <div class="container">
+            
+            <h1 class="text-success my-4">Your Students Bio</h1>
+    
+            <!-- Students Bio Data Base -->
+    
+              <table class="table table-hover table-bordered">
+                <thead class="table-success">
+                    <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Mobile </th>
+                    <th> Country </th>
+                    <th> Gender </th>
+                    <th> DOB </th>
+                    <th> ADDRESS </th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                        {% for uobj in userData %}
+                    <tr>
+                    <td> {{ uobj['username'] }} </td>
+                    <td> {{ uobj['useremail'] }} </td>
+                    <td> {{ uobj['usermobile'] }} </td>
+                    <td> {{ uobj['usercountry'] }} </td>
+                    <td> {{ uobj['usergender'] }} </td>
+                    <td> {{ uobj['userdob'] }} </td>
+                    <td> {{ uobj['useraddress'] }} </td>
+                    </tr>
+                        {% endfor %}
+                </tbody>
+              <table>
+        </div>
+
+
+
+        {% if search_result %}
+
+        <div class="container">
+            
+            <h1 class="text-success my-4">Your Students Details</h1>
+    
+            <!-- Students Details Data Base -->
+    
+              <table class="table table-hover table-bordered">
+                <thead class="table-success">
+                    <tr>
+                    <th> Name </th>
+                    <th> Roll Number </th>
+                    <th> Department </th>
+                    <th> Semester </th>
+                    <th> Session </th>
+                    <th> CGPA </th>
+                    <th> New Technologies </th>
+                    <th> Certificates </th>
+                    <th> Mentor Score </th>
+                    <th> Mentor Remarks </th>
+                    <th> Date </th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                        {% for uobj in studentDetailsObj %}
+                    <tr>
+                    <td> {{ uobj['studentName'] }} </td>
+                    <td> {{ uobj['studentRoll'] }} </td>
+                    <td> {{ uobj['studentDept'] }} </td>
+                    <td> {{ uobj['studentSem'] }} </td>
+                    <td> {{ uobj['studentSession'] }} </td>
+                    <td> {{ uobj['studentCGPA'] }} </td>
+                    <td> {{ uobj['studentNewTech'] }} </td>
+                    <td> {{ uobj['studentCertificates'] }} </td>
+                    <td> {{ uobj['studentMentorScore'] }} </td>
+                    <td> {{ uobj['studentMetorRemarks'] }} </td>
+                    <td> {{ uobj['studentDate'] }} </td>
+                    <td> <form action="/updateStudentByTeacher" method="GET">
+                      <input type="hidden" name="email" value="{{ uobj['studentEmail'] }}">
+                      <input type="hidden" name="sem" value="{{ uobj['studentSem'] }}">
+                      <input type="submit" value="UPDATE" class="btn btn-outline-success">
+                      </form>
+                    </td>
+                    </tr>
+                        {% endfor %}
+                </tbody>
+              <table>
+        </div>
+        {% endif %}
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FontAwesome file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+    <!-- Jquery file -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- logo -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.jpeg') }}">
+
+    
+
+    <title>Smart Learner - Home</title>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Registration
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/userReg">Student</a>
+                <a class="dropdown-item" href="/teacherReg">Teacher</a>
+              </ul>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/aboutUs">About Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/#">Contact Us</a>
+            </li> -->
+          </ul>
+        </div>
+        <a type="button" class="btn btn-outline-success" href="/adminLogin" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
+          Admin
+        </a>
+      </div>
+    </nav>
+
+
+
+
+
+    <!-- Student Log in -->
+      <div class="container my-4">
+        <a class="btn btn-outline-success" href="/userLogin">Student Login</a>
+      </div>
+
+
+    <!-- Teacher Log in -->
+    <div class="container my-4">
+      <a class="btn btn-outline-success" href="/teacherLogin">Teacher Login</a>
+    </div>
+
+
+    <!-- about section start -->
+    <section class="about" id="about">
+      <div class="max-width">
+          <h2 class="title">About me</h2>
+          <div class="about-content">
+              <div class="column left">
+                <img src="static/images/Atreyee.jpeg" alt="">
+              </div>
+              <div class="column right">
+                  <div class="text">I'm Atreyee and I'm a <span class="typing-2"></span></div>
+                  <p>I am Atreyee Mallick. I am a student of Gargi Memorial Institute of technology in the Computer Science & Engineering department. I am a full-stack web developer. I made this website to track students and their mentors. This website is very useful for every institute to maintain every student and teachers data update. </p>
+                  <!-- <a href="#">Download CV</a> -->
+              </div>
+          </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- contact section start -->
+    <section class="contact" id="contact">
+      <div class="max-width">
+          <h2 class="title">Contact me</h2>
+          <div class="contact-content">
+              <div class="column left">
+                  <div class="text">Get in Touch</div>
+                  <p> Our service is 24x7 hours open & we will answer your every query. To contact please fill up the form right below.</p>
+                  <div class="icons">
+                      <div class="row">
+                          <i class="fas fa-user"></i>
+                          <div class="info">
+                              <div class="head">Name</div>
+                              <div class="sub-title">Atreyee Mallick</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <div class="info">
+                              <div class="head">Address</div>
+                              <div class="sub-title">Kolkata, INDIA</div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <i class="fas fa-envelope"></i>
+                          <div class="info">
+                              <div class="head">Email</div>
+                              <div class="sub-title">atreyeemallick9@gmail.com</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="column right">
+                  <div class="text">Message me</div>
+                  <form action="/studentQueryAdmin" method="post">
+                      <div class="fields">
+                          <div class="field name">
+                              <input type="text" placeholder="Name" name="name" required>
+                          </div>
+                          <div class="field email">
+                              <input type="email" placeholder="Email" name="email" required>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <input type="text" placeholder="Subject" name="subject" required>
+                      </div>
+                      <div class="field textarea">
+                          <textarea cols="30" rows="10" placeholder="Message.." name="message" required></textarea>
+                      </div>
+                      <h6 class="text-warning my-2">{{ successMsg }}</h6>
+                      <div class="button-area">
+                          <button type="submit">Send message</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <!-- footer section start -->
+  <footer>
+    <span>Created By <a href="https://www.facebook.com/atreyee.mallick.9">Atreyee Mallick</a> with <i class="far fa-heart" style="color: crimson;;"></i> | <span class="far fa-copyright"></span> 2021 All rights reserved.</span>
+  </footer>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+    <!-- Js file -->
+    <script src="static/js/script.js"></script>
+</html>
